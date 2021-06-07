@@ -17,12 +17,13 @@ def fft(arr):
     n = len(arr)
     if n == 1:
         return arr
-    wn = numpy.exp((2j*math.pi)/n)
+    wn = numpy.exp((-2j*math.pi)/n)
+    print(wn)
     w = 1
     a0=arr[1::2]; 
-    a1=arr[0::2];
-    evens = fft(a0)
-    odds = fft(a1)
+    a1=arr[::2];
+    odds = fft(a0)
+    evens = fft(a1)
     for k in range((n//2)):
         arr[k] = evens[k]+(w*odds[k])
         arr[k+(n//2)] = evens[k]-(w*odds[k])
@@ -31,14 +32,8 @@ def fft(arr):
 
 
 def main():
-    arrin = input("")
-    arrin = list(map(int, arrin.split(' ')))
-    # print(f"{dft(arrin)}")
-    print("fft----0\ndft-----1")
-    if input()==0:
-        print(fft(arrin))
-    else:
-        print(dft(arrin))
+    arrin=[1,2,3,4]
+    print(fft(arrin))
 
 
 if __name__ == "__main__":
