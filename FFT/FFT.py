@@ -5,7 +5,7 @@ def fft(arr):
     n = len(arr)
     if n == 1:
         return arr
-    wn = numpy.exp((2j*math.pi)/n)
+    wn = numpy.exp((-2j*math.pi)/n)
     w = 1
     odds = fft(arr[1::2])
     evens = fft(arr[::2])
